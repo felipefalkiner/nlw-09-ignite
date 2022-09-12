@@ -3,3 +3,6 @@
 
 ./web/node_modules
 ./web/node_modules/*
+
+./mobile/node_modules
+./mobile/node_modules/*
