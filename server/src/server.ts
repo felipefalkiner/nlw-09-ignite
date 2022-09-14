@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client'
 
 const app = express();
 const prisma = new PrismaClient({
-    log: ['query']
+    // log: ['query']
 });
 
 // HTTP methods / API RESTful / HTTP Codes
@@ -15,10 +15,10 @@ const prisma = new PrismaClient({
 * Body: {} | Enviar vários dados de uma vez
 */
 
-app.get('/games', (request, response) => {
-    // const games = await prisma.game.findMany()
+app.get('/games',  async (request, response) => {
+    const games = await prisma.game.findMany()
 
-    return response.json([])
+    return response.json(games)
 })
 
 app.post('/ads', (request, response) => {
