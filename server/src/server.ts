@@ -1,6 +1,10 @@
 import express, { response } from 'express';
+import { PrismaClient } from '@prisma/client'
 
 const app = express();
+const prisma = new PrismaClient({
+    log: ['query']
+});
 
 // HTTP methods / API RESTful / HTTP Codes
 // GET, POST, PUT, PATCH, DELETE
@@ -12,6 +16,8 @@ const app = express();
 */
 
 app.get('/games', (request, response) => {
+    // const games = await prisma.game.findMany()
+
     return response.json([])
 })
 
