@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import logoImg from '../../assets/logo-nlw-esports.png'
+
 import { GameCard, GameCardProps } from '../../components/GameCard';
 import { Heading } from '../../components/Heading';
+import { Background } from '../../components/Background';
 
 import { styles } from './styles';
 
@@ -19,6 +21,7 @@ export function Home() {
   })
 
   return (
+    <Background>
     <SafeAreaView style={styles.container}>
       <Image
         source={logoImg}
@@ -46,5 +49,6 @@ export function Home() {
       
 
     </SafeAreaView>
+    </Background>
   );
 }
