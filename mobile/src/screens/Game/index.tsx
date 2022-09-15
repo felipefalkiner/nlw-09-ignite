@@ -7,8 +7,7 @@ export function Game() {
   return (
     <Background>
       <SafeAreaView style={styles.container}>
-
       </SafeAreaView>
-      </Background>
+    </Background>
   );
 }
