@@ -9,6 +9,7 @@ import { styles } from './styles';
 import { GameParams } from '../../@types/navigation';
 import { View, TouchableOpacity, Image } from 'react-native'
 import { THEME } from '../../theme';
+import { Heading } from '../../components/Heading';
 
 export function Game() {
 
@@ -30,7 +31,14 @@ export function Game() {
             source={logoImg}
             style={styles.logo}
           />
+          <View style={styles.right} />
         </View>
+
+        <Heading
+          title={game.title}
+          subtitle={"Conecte-se e comece a jogar!"}
+        />
+
       </SafeAreaView>
     </Background>
   );
