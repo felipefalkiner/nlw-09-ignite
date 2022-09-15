@@ -8,3 +8,6 @@
 
 ./mobile/node_modules
 ./mobile/node_modules/*
+
+./mobile-old/node_modules
+./mobile-old/node_modules/*
