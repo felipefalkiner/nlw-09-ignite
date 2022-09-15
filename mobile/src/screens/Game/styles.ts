@@ -19,5 +19,11 @@ export const styles = StyleSheet.create({
   right: {
     width: 20,
     height: 20,
+  },
+  cover: {
+    width: 311,
+    height: 160,
+    borderRadius: 8,
+    marginTop: 32,
   }
 });
