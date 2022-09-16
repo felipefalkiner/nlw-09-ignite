@@ -6,6 +6,7 @@ import './styles/main.css';
 import logoImg from './assets/logo-nlw.svg';
 import { GameBanner } from './components/GameBanner';
 import { CreateAdBanner } from './components/CreateAdBanner';
+import { Input } from './components/Form/Input';
 import { CreateAdModal } from './components/Form/CreateAdModal';
 
 interface Game {
@@ -58,6 +59,7 @@ function App() {
       <CreateAdBanner />
       <CreateAdModal />
 
+        
     </Dialog.Root>
     </div>
   
