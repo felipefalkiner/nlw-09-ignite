@@ -1,20 +1,24 @@
+import { useEffect, useState } from 'react';
+import { View, TouchableOpacity, Image, FlatList, ScrollView, Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRoute, useNavigation } from '@react-navigation/native'
 import { Entypo } from '@expo/vector-icons'
 
 import logoImg from '../../assets/logo-nlw-esports.png'
-import { Background } from '../../components/Background';
 
-import { styles } from './styles';
-import { GameParams } from '../../@types/navigation';
-import { View, TouchableOpacity, Image, FlatList, ScrollView, Text } from 'react-native'
 import { THEME } from '../../theme';
-import { Heading } from '../../components/Heading';
+import { styles } from './styles';
+
+import { GameParams } from '../../@types/navigation';
+
 import { DuoCard, DuoCardProps } from '../../components/DuoCard';
-import { useEffect, useState } from 'react';
+import { Background } from '../../components/Background';
+import { Heading } from '../../components/Heading';
+import { DuoMatch } from '../../components/DuoMatch'
 
 export function Game() {
   const [duos, setDuos] = useState<DuoCardProps[]>([]);
+  const [discordDuoSelected, setDiscordDuoSelected] = useState('discordDuoSelected');
 
   const navigation = useNavigation();
   const route = useRoute();
@@ -81,6 +85,11 @@ export function Game() {
           />
        
        </ScrollView>
+       <DuoMatch 
+        visible={discordDuoSelected.length > 0}
+        discord="Falk#0000"
+        onClose={() => setDiscordDuoSelected('')}
+       />
       </SafeAreaView>
     </Background>
   );
