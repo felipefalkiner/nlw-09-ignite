@@ -7,7 +7,7 @@ import { Background } from '../../components/Background';
 
 import { styles } from './styles';
 import { GameParams } from '../../@types/navigation';
-import { View, TouchableOpacity, Image, FlatList } from 'react-native'
+import { View, TouchableOpacity, Image, FlatList, ScrollView, Text } from 'react-native'
 import { THEME } from '../../theme';
 import { Heading } from '../../components/Heading';
 import { DuoCard, DuoCardProps } from '../../components/DuoCard';
@@ -33,6 +33,7 @@ export function Game() {
   return (
     <Background>
       <SafeAreaView style={styles.container}>
+        
         <View style={styles.header}>
           <TouchableOpacity onPress={handleGoBack}>
             <Entypo
@@ -58,16 +59,28 @@ export function Game() {
           title={game.title}
           subtitle={"Conecte-se e comece a jogar!"}
         />
-        
+        <ScrollView style={styles.containerList}>
         <FlatList
           data={duos}
           keyExtractor={item => item.id}
           renderItem={({ item }) => (
-            <DuoCard data={item} />
+            <DuoCard
+              data={item}
+              onConnect={() => { }}
+            />
+            )}
+            horizontal
+            style={styles.containerList}
+            contentContainerStyle={[duos.length > 0 ? styles.contentList : styles.emptyListContent]}
+            showsHorizontalScrollIndicator={false}
+            ListEmptyComponent={() => (
+              <Text style={styles.emptyListText}>
+                Não há anúncios publicados ainda.
+              </Text>
             )}
           />
-        
-
+       
+       </ScrollView>
       </SafeAreaView>
     </Background>
   );
