@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { StatusBar } from 'react-native';
 import { 
   useFonts,
@@ -6,11 +7,16 @@ import {
   Inter_700Bold,
   Inter_900Black
  } from '@expo-google-fonts/inter';
+ import { } from 'expo'
 
 import { Routes } from './src/routes'; 
 import { Loading } from './src/components/Loading';
 import { Background } from './src/components/Background';
 
+import './src/services/notificationConfigs';
+import { getPushNotificationToken } from './src/services/getPushNotificationToken';
+
+// const getNotificationListener = useRef<>();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
