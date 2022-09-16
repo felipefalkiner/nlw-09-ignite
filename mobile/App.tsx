@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { StatusBar } from 'react-native';
 import { 
   useFonts,
@@ -16,8 +16,6 @@ import { Background } from './src/components/Background';
 import './src/services/notificationConfigs';
 import { getPushNotificationToken } from './src/services/getPushNotificationToken';
 
-// const getNotificationListener = useRef<>();
-
 export default function App() {
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
@@ -25,6 +23,14 @@ export default function App() {
     Inter_700Bold,
     Inter_900Black
   });
+
+  const getNotificationListener = useRef<Subscription>();
+  const responseNotificationListener = useRef<Subscription>();
+
+  useEffect(() => {
+    getPushNotificationToken();
+  })
+
   return (
     <Background>
       <StatusBar
